@@ -1,4 +1,4 @@
-import java.io.IOException;
+/*import java.io.IOException;
 
 public class Main {
 
@@ -6,4 +6,4 @@ public class Main {
 
         DisplayImage image=new DisplayImage(args[0]);
     }
-}
+}*/

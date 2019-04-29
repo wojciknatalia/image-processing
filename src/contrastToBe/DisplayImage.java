@@ -1,4 +1,4 @@
-import javax.imageio.ImageIO;
+/*import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,4 +19,4 @@ public class DisplayImage{
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-}
+}*/
