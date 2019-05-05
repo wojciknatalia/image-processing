@@ -1,4 +1,7 @@
-package VMF;
+package imadjust;
+
+import VMF.ImageUtilities;
+import VMF.PrepareVectorMedian;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,11 +16,11 @@ public class Gui extends JFrame {
 
     BufferedImage sourceImage = null;
     String sWidth, sHeight;
-    PrepareVectorMedian vecMed;
+    Imadjust imAdj;
     File savedFile;
 
     public Gui(){
-        vecMed = new PrepareVectorMedian();
+        imAdj=new Imadjust(imageName);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());
@@ -25,7 +28,7 @@ public class Gui extends JFrame {
 
         savedFile = new File("performEffect.jpg");
         try {
-            ImageIO.write(vecMed.getMedianImage(), "jpeg", savedFile);
+            ImageIO.write(imAdj.getAdjustedImage(), "jpeg", savedFile);
         } catch (Exception e) {
         }
 
@@ -40,7 +43,7 @@ public class Gui extends JFrame {
 
     public void paint(Graphics g) {
         g.drawImage(sourceImage, 0, 0, this);  // original image
-        g.drawImage(vecMed.getMedianImage(),sourceImage.getWidth(),0, this); //vector median img
+        g.drawImage(imAdj.getAdjustedImage(),sourceImage.getWidth(),0, this);
     }
 
     public String getImagename() {
