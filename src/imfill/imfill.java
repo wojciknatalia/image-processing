@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class imfill {
 
-    BufferedImage grayImage;
-    BufferedImage imfillImage;
+    private static BufferedImage grayImage;
+    private static BufferedImage imfillImage;
 
     public int getWidth(){
         return grayImage.getWidth();
@@ -19,7 +19,7 @@ public class imfill {
         return grayImage.getHeight();
     }
 
-    public imfill(String imFill, Graphics graphics) {
+    public imfill(String imFill) throws IOException{
         int[][] imageColor ;
         try {
             grayImage = ImageIO.read(new File(imFill));
@@ -41,12 +41,13 @@ public class imfill {
                 }
             }
 
-            graphics.drawImage(grayImage, 0, 0, 380, 400,null);
-            graphics.drawImage(imfillImage,400,0, 380,400,null);
+            //graphics.drawImage(grayImage, 0, 0, 380, 400,null);
+            //graphics.drawImage(imfillImage,400,0, 380,400,null);
 
-            File mFile = new File("C:\\Users\\asd\\Desktop\\untitled\\coins2.jpg");
-            ImageIO.write(imfillImage, "jpg", mFile);
-        } catch (IOException e) {
+           /* File mFile = new File("C:\\Users\\asd\\Desktop\\untitled\\coins2.jpg");
+            ImageIO.write(imfillImage, "jpg", mFile);*/
+            }
+        catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -108,5 +109,8 @@ public class imfill {
 
     }
 
+    public static BufferedImage getFilledImage() {
+        return imfillImage;
+    }
 
 }
