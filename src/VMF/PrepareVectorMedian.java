@@ -13,9 +13,9 @@ public class PrepareVectorMedian extends JFrame{
     static ImageUtilities util= new ImageUtilities();
     public static final String imageName = util.getImageName();
 
-    public PrepareVectorMedian() //throws Exception
+    public PrepareVectorMedian(String fileName) //throws Exception
     {
-        sourceImage = ImageUtilities.getBufferedImage(imageName, this);
+        sourceImage = ImageUtilities.getBufferedImage(fileName, this);
 
         int[][] to2D = RGBTo2D(sourceImage);
         int[] tab1D=convertTo1D(to2D, sourceImage.getWidth(), sourceImage.getHeight());

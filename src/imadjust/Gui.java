@@ -1,8 +1,5 @@
 package imadjust;
 
-import VMF.ImageUtilities;
-import VMF.PrepareVectorMedian;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;

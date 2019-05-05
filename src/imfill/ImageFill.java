@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class imfill {
+public class ImageFill {
 
     private static BufferedImage grayImage;
     private static BufferedImage imfillImage;
@@ -19,7 +19,7 @@ public class imfill {
         return grayImage.getHeight();
     }
 
-    public imfill(String imFill) throws IOException{
+    public ImageFill(String imFill) throws IOException{
         int[][] imageColor ;
         try {
             grayImage = ImageIO.read(new File(imFill));

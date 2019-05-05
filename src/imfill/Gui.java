@@ -14,11 +14,11 @@ public class Gui extends JFrame {
 
     BufferedImage sourceImage = null;
     String sWidth, sHeight;
-    imfill imgFill;
+    ImageFill imgFill;
     File savedFile;
 
     public Gui() throws IOException {
-        imgFill=new imfill(imageName);
+        imgFill=new ImageFill(imageName);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());
@@ -26,7 +26,7 @@ public class Gui extends JFrame {
 
         savedFile = new File("performEffect.jpg");
         try {
-            ImageIO.write(imfill.getFilledImage(), "jpeg", savedFile);
+            ImageIO.write(ImageFill.getFilledImage(), "jpeg", savedFile);
         } catch (Exception e) {
         }
 
@@ -41,7 +41,7 @@ public class Gui extends JFrame {
 
     public void paint(Graphics g) {
         g.drawImage(sourceImage, 0, 0, this);  // original image
-        g.drawImage(imfill.getFilledImage(),sourceImage.getWidth(),0, this);
+        g.drawImage(imgFill.getFilledImage(),sourceImage.getWidth(),0, this);
     }
 
     public String getImagename() {

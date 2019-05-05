@@ -10,9 +10,13 @@ public class Imadjust {
     private static File file;
     private static BufferedImage in;
 
-    Imadjust(String fileName){
+    public Imadjust(String fileName){
         try {
-            readFile(fileName);
+            //readFile(fileName);
+            in = ImageIO.read(new File(fileName));
+            new BufferedImage(in.getWidth(),
+                    in.getHeight(),
+                    in.getType());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@ public class ImageUtilities {
 
     //create Image from a file, then turns into a BufferedImage
 
-    public static final String imageName = "pap.png";
+    public static final String imageName = "brain.jpg";
 
     public static BufferedImage getBufferedImage(String imageFile,
                                                  Component c) {

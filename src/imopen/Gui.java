@@ -17,7 +17,7 @@ public class Gui extends JFrame {
     File savedFile;
 
     public Gui(){
-        open=new Opening();
+        open=new Opening(imageName);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
         sWidth = Integer.toString(sourceImage.getWidth());
         sHeight = Integer.toString(sourceImage.getHeight());

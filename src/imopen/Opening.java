@@ -19,8 +19,8 @@ public class Opening extends JFrame {
             0,0,1,0,0,
     };
 
-    Opening(){
-        sourceImage = ImageUtilities.getBufferedImage(imageName, this);
+    public Opening(String fileName){
+        sourceImage = ImageUtilities.getBufferedImage(fileName, this);//ImageUtilities.getBufferedImage(imageName, this);
         int[][] greyScale = RGBToGrey(sourceImage);
         int[] tab1D=convertTo1D(greyScale, sourceImage.getWidth(), sourceImage.getHeight());
         openImage = makeNewBufferedImage1D(doOpening(tab1D,sourceImage.getWidth(),sourceImage.getHeight()), sourceImage.getWidth(), sourceImage.getHeight());
