@@ -17,7 +17,7 @@ public class Gui extends JFrame {
     File savedFile;
 
     public Gui(){
-        vecMed = new PrepareVectorMedian(imageName);
+        vecMed = new PrepareVectorMedian(imageName, 5); //customize masksize
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());

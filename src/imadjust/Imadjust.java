@@ -10,7 +10,7 @@ public class Imadjust {
     private static File file;
     private static BufferedImage in;
 
-    public Imadjust(String fileName){
+    public Imadjust(String fileName, int i1, int o1, int i2, int o2, int i3, int o3){
         try {
             //readFile(fileName);
             in = ImageIO.read(new File(fileName));
@@ -24,8 +24,12 @@ public class Imadjust {
         //in is contrast, out is brightness
 
         //na sztywno
-        increaseBrightness(in, 20);
-        increaseContrast(in, 130);
+        increaseBrightness(in, o1);
+        increaseContrast(in, i1);
+        increaseBrightness(in, o2);
+        increaseContrast(in, i2);
+        increaseBrightness(in, o3);
+        increaseContrast(in, i3);
     }
 
     private static void readFile(String fileName) throws IOException {

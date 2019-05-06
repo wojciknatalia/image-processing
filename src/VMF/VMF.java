@@ -1,7 +1,7 @@
 package VMF;
 
 public class VMF {
-    int masksize;
+    private int masksize;
     int[] maskIndex;
     double[] array;
     int[] pixels;
@@ -9,14 +9,14 @@ public class VMF {
     int height;
     int indent;
 
-    VMF(int[] px, int w, int h){
+    VMF(int[] px, int w, int h, int mSize){
         this.pixels=px;
         this.width=w;
         this.height=h;
-        masksize=5;
-        maskIndex=new int[masksize*masksize];
-        array=new double[masksize*masksize];
-        indent=(int)Math.floor(masksize/2);
+        this.masksize=mSize;
+        this.maskIndex=new int[masksize*masksize];
+        this.array=new double[masksize*masksize];
+        this.indent=(int)Math.floor(masksize/2);
     }
 
     public int[] performEffect(){
@@ -27,8 +27,11 @@ public class VMF {
             for(int x=indent; x<width-indent; x++){
                 int pointOffset=y*width+x; //centre of mask
                 counter=0; //index for mask
+                outloop:
                 for(int i=-indent;i<=indent;i++){
                     for(int j=-indent;j<=indent;j++){
+                        if(counter>=masksize*masksize)
+                            break outloop;
                         maskIndex[counter]=(y+i)*width+(x+j);
                         counter++;
                     }

@@ -16,8 +16,14 @@ public class Gui extends JFrame {
     Opening open;
     File savedFile;
 
+    int mask0size3[]={
+            0,0,0,
+            1,1,1,
+            0,0,0,
+    };
+
     public Gui(){
-        open=new Opening(imageName);
+        open=new Opening(imageName, 5, mask0size3);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
         sWidth = Integer.toString(sourceImage.getWidth());
         sHeight = Integer.toString(sourceImage.getHeight());

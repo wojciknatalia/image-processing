@@ -17,10 +17,15 @@ import VMF.VMF;
 import VMF.PrepareVectorMedian;
 
 
-public class Gui extends JFrame {
+public class Gui extends JPanel {
 
     static ImageUtilities util= new ImageUtilities();
     public static final String imageName = util.getImageName();
+
+    boolean ifImadjust=false;
+    boolean ifImfill=false;
+    boolean ifImopen=false;
+    boolean ifVMF=false;
 
     BufferedImage sourceImage = null;
     String sWidth, sHeight;
@@ -30,47 +35,70 @@ public class Gui extends JFrame {
     PrepareVectorMedian vecMed;
     File savedFile;
 
+    String[] imadjustData={"0","0","0","0","0","0"};
+    String vmfData;
+
     public Gui() throws IOException {
-        imAdj=new Imadjust(imageName);
+        //imAdj=new Imadjust(imageName,Integer.parseInt(imadjustData[0]),Integer.parseInt(imadjustData[1]),Integer.parseInt(imadjustData[2]),Integer.parseInt(imadjustData[3]),Integer.parseInt(imadjustData[4]),Integer.parseInt(imadjustData[5]));
         imgFill=new ImageFill(imageName);
-        open=new Opening(imageName);
-        vecMed = new PrepareVectorMedian(imageName);
+        //open=new Opening(imageName);
+        //vecMed = new PrepareVectorMedian(imageName);
 
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());
         sHeight = Integer.toString(sourceImage.getHeight());
 
-        savedFile = new File("performEffect.jpg");
+        /*savedFile = new File("performEffect.jpg");
         try {
             ImageIO.write(imAdj.getAdjustedImage(), "jpeg", savedFile);
         } catch (Exception e) {
-        }
+        }*/
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //TO DO: write file
+
+        /*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.setTitle("Img Processing Demo");
         this.setSize(sourceImage.getWidth()*2, sourceImage.getHeight()*3);
         this.setVisible(true);
         this.repaint();
-        this.repaint();
+        this.repaint();*/
     }
 
     public void paint(Graphics g) {
         g.drawImage(sourceImage, 0, 0, this);  // original image
-        g.drawImage(imAdj.getAdjustedImage(),sourceImage.getWidth(),0, this);
-        g.drawImage(imgFill.getFilledImage(),0,sourceImage.getHeight(), this);
-        g.drawImage(open.getOpenImage(),sourceImage.getWidth(),sourceImage.getHeight(), this);
-        g.drawImage(vecMed.getMedianImage(),0,sourceImage.getHeight()*2, this);
+        if(ifImadjust==true)
+        {
+            imadjustData=normalizationDialog.getData();
+            imAdj=new Imadjust(imageName,Integer.parseInt(imadjustData[0]),Integer.parseInt(imadjustData[1]),Integer.parseInt(imadjustData[2]),Integer.parseInt(imadjustData[3]),Integer.parseInt(imadjustData[4]),Integer.parseInt(imadjustData[5]));
+            g.drawImage(imAdj.getAdjustedImage(),sourceImage.getWidth(),0, this);
+            ifImadjust=false;
+        }
+        else if(ifImfill==true)
+        {
+            g.drawImage(imgFill.getFilledImage(),sourceImage.getWidth(),0, this);
+            ifImfill=false;
+        }
+        else if(ifImopen)
+        {
+            open=new Opening(imageName,openDialog.getMaskSize(),openDialog.getMask());
+            g.drawImage(open.getOpenImage(),sourceImage.getWidth(),0, this);
+            ifImopen=false;
+        }
+        else if(ifVMF)
+        {
+            vmfData=vmfDialog.getData();
+            vecMed = new PrepareVectorMedian(imageName, Integer.parseInt(vmfData));
+            g.drawImage(vecMed.getMedianImage(),sourceImage.getWidth(),0, this);
+            ifVMF=false;
+        }
+
     }
 
     public String getImagename() {
         return imageName;
     }
 
-    public static void main(String[] args) throws IOException{
-        Gui gui=new Gui();
-
-    }
 
 }

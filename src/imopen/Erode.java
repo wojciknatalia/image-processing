@@ -43,6 +43,7 @@ public class Erode extends MorphOperation {
                 {
                     for (int n=-indent;n<=indent;n++)
                     {
+
                         if (mask[radius+n+m*masksize] !=0)
                         {
                             minr = Math.min(minr,((pixels[pointOffset+n+m*width]

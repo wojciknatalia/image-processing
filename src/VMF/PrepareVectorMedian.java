@@ -13,13 +13,13 @@ public class PrepareVectorMedian extends JFrame{
     static ImageUtilities util= new ImageUtilities();
     public static final String imageName = util.getImageName();
 
-    public PrepareVectorMedian(String fileName) //throws Exception
+    public PrepareVectorMedian(String fileName, int maskSize) //throws Exception
     {
         sourceImage = ImageUtilities.getBufferedImage(fileName, this);
 
         int[][] to2D = RGBTo2D(sourceImage);
         int[] tab1D=convertTo1D(to2D, sourceImage.getWidth(), sourceImage.getHeight());
-        medianImage = makeNewBufferedImage1D(vectorMedian(tab1D,sourceImage.getWidth(),sourceImage.getHeight()), sourceImage.getWidth(), sourceImage.getHeight());
+        medianImage = makeNewBufferedImage1D(vectorMedian(tab1D,sourceImage.getWidth(),sourceImage.getHeight(), maskSize), sourceImage.getWidth(), sourceImage.getHeight());
 
         savedFile = new File("performEffect.jpg"); //save jpg to file
         try {
@@ -39,9 +39,9 @@ public class PrepareVectorMedian extends JFrame{
         return twoDimensions;
     }
 
-    public int[] vectorMedian(int[] input, int width, int height){
+    public int[] vectorMedian(int[] input, int width, int height, int masksize){
         int[] output;
-        VMF vectorMed=new VMF(input,width,height);
+        VMF vectorMed=new VMF(input,width,height, masksize);
         output=vectorMed.performEffect();
         return output;
     }

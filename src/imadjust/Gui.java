@@ -17,7 +17,7 @@ public class Gui extends JFrame {
     File savedFile;
 
     public Gui(){
-        imAdj=new Imadjust(imageName);
+        imAdj=new Imadjust(imageName, 10,10,10,10,10,10);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());

@@ -10,20 +10,16 @@ public class Opening extends JFrame {
     static ImageUtilities util= new ImageUtilities();
     public static final String imageName = util.getImageName();
 
-    int masksize=5; //TO DO: customize masksize and mask
-    int mask[]={
-            0,0,1,0,0,
-            0,0,1,0,0,
-            1,1,1,1,1,
-            0,0,1,0,0,
-            0,0,1,0,0,
-    };
+    int masksize; //TO DO: customize masksize and mask
+    int mask[];
 
-    public Opening(String fileName){
+    public Opening(String fileName, int mSize, int[] myMask){
+
         sourceImage = ImageUtilities.getBufferedImage(fileName, this);//ImageUtilities.getBufferedImage(imageName, this);
         int[][] greyScale = RGBToGrey(sourceImage);
         int[] tab1D=convertTo1D(greyScale, sourceImage.getWidth(), sourceImage.getHeight());
-        openImage = makeNewBufferedImage1D(doOpening(tab1D,sourceImage.getWidth(),sourceImage.getHeight()), sourceImage.getWidth(), sourceImage.getHeight());
+
+        openImage = makeNewBufferedImage1D(doOpening(tab1D,sourceImage.getWidth(),sourceImage.getHeight(), mSize, myMask), sourceImage.getWidth(), sourceImage.getHeight());
         //below need to be checked
     }
 
@@ -42,11 +38,11 @@ public int[][] RGBToGrey(BufferedImage source){
         return greyScale;
     }
 
-public int[] doOpening(int[] input, int width, int height){
+public int[] doOpening(int[] input, int width, int height, int mSize, int[] myMask){
         int[] output;
-        Erode erode=new Erode(input,masksize, mask, width, height);
+        Erode erode=new Erode(input,mSize, myMask, width, height);
         output=erode.performEffect();
-        Dilate dilate=new Dilate(output,masksize, mask, width, height);
+        Dilate dilate=new Dilate(output,mSize, myMask, width, height);
         output=dilate.performEffect();
         return output;
     }

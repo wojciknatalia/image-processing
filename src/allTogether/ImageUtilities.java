@@ -3,11 +3,12 @@ package allTogether;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+
 public class ImageUtilities {
 
     //create Image from a file, then turns into a BufferedImage
 
-    public static final String imageName = "meadow.jpg";
+    public static final String imageName = "snow.jpg";
 
     public static BufferedImage getBufferedImage(String imageFile,
                                                  Component c) {
