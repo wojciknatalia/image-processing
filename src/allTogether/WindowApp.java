@@ -50,7 +50,7 @@ public class WindowApp extends JFrame {
 
         container.add(BorderLayout.SOUTH, panel);
         addWindowListener(new WindowEventHandler());
-        setSize(gui.sourceImage.getWidth()*2, gui.sourceImage.getHeight()*2);
+        setSize(gui.sourceImage.getWidth()*2, gui.sourceImage.getHeight()+120);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         //show();
