@@ -6,9 +6,8 @@ import java.awt.image.BufferedImage;
 
 public class ImageUtilities {
 
-    //create Image from a file, then turns into a BufferedImage
-
-    public static final String imageName = "snow.jpg";
+    //create image from a file, turns into a BufferedImage
+    public static final String imageName = WindowApp.getFileName(); //read img from file
 
     public static BufferedImage getBufferedImage(String imageFile,
                                                  Component c) {

@@ -1,24 +1,19 @@
 package allTogether;
 
 import javax.swing.*;
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
-import allTogether.Gui;
 
 public class WindowApp extends JFrame {
     Gui gui;
     JButton imadjust, imfill, imopen, VMF;
     Graphics g;
+    static String fileName;
 
     public WindowApp() throws IOException{
         super();
@@ -53,7 +48,6 @@ public class WindowApp extends JFrame {
         setSize(gui.sourceImage.getWidth()*2, gui.sourceImage.getHeight()+120);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-        //show();
     }
 
     class WindowEventHandler extends WindowAdapter{
@@ -89,7 +83,12 @@ public class WindowApp extends JFrame {
         }
     }
 
+    static String getFileName(){
+        return fileName;
+    }
+
     public static void main(String[] args) throws IOException{
+        fileName=args[0];
         new WindowApp();
     }
 }

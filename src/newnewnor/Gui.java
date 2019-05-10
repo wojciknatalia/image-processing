@@ -1,4 +1,4 @@
-package imfill;
+package newnewnor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,7 +18,7 @@ public class Gui extends JFrame {
     File savedFile;
 
     public Gui() throws IOException {
-        imgFill=new ImageFill(imageName);
+        imgFill=new ImageFill(imageName, 0,0,100,100,250,250);
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());

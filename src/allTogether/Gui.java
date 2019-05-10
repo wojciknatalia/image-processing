@@ -9,11 +9,7 @@ import java.io.IOException;
 
 import imadjust.Imadjust;
 import imfill.ImageFill;
-import imopen.Dilate;
-import imopen.Erode;
-import imopen.MorphOperation;
 import imopen.Opening;
-import VMF.VMF;
 import VMF.PrepareVectorMedian;
 
 
@@ -28,6 +24,7 @@ public class Gui extends JPanel {
     boolean ifVMF=false;
 
     BufferedImage sourceImage = null;
+    BufferedImage savedImage;
     String sWidth, sHeight;
     Imadjust imAdj;
     ImageFill imgFill;
@@ -39,51 +36,44 @@ public class Gui extends JPanel {
     String vmfData;
 
     public Gui() throws IOException {
-        //imAdj=new Imadjust(imageName,Integer.parseInt(imadjustData[0]),Integer.parseInt(imadjustData[1]),Integer.parseInt(imadjustData[2]),Integer.parseInt(imadjustData[3]),Integer.parseInt(imadjustData[4]),Integer.parseInt(imadjustData[5]));
         imgFill=new ImageFill(imageName);
-        //open=new Opening(imageName);
-        //vecMed = new PrepareVectorMedian(imageName);
 
         sourceImage = ImageUtilities.getBufferedImage(imageName, this);
 
         sWidth = Integer.toString(sourceImage.getWidth());
         sHeight = Integer.toString(sourceImage.getHeight());
+    }
 
-        /*savedFile = new File("performEffect.jpg");
+    void saveFile(BufferedImage img){
+        savedFile = new File("processedImage.jpg");
         try {
-            ImageIO.write(imAdj.getAdjustedImage(), "jpeg", savedFile);
+            ImageIO.write(img, "jpeg", savedFile);
         } catch (Exception e) {
-        }*/
-
-        //TO DO: write file
-
-        /*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        this.setTitle("Img Processing Demo");
-        this.setSize(sourceImage.getWidth()*2, sourceImage.getHeight()*3);
-        this.setVisible(true);
-        this.repaint();
-        this.repaint();*/
+        }
     }
 
     public void paint(Graphics g) {
+        super.paintComponent(g);
         g.drawImage(sourceImage, 0, 0, this);  // original image
-        if(ifImadjust==true)
+        if(ifImadjust)
         {
             imadjustData=normalizationDialog.getData();
             imAdj=new Imadjust(imageName,Integer.parseInt(imadjustData[0]),Integer.parseInt(imadjustData[1]),Integer.parseInt(imadjustData[2]),Integer.parseInt(imadjustData[3]),Integer.parseInt(imadjustData[4]),Integer.parseInt(imadjustData[5]));
             g.drawImage(imAdj.getAdjustedImage(),sourceImage.getWidth(),0, this);
+            saveFile(imAdj.getAdjustedImage());
             ifImadjust=false;
         }
-        else if(ifImfill==true)
+        else if(ifImfill)
         {
             g.drawImage(imgFill.getFilledImage(),sourceImage.getWidth(),0, this);
+            saveFile(imgFill.getFilledImage());
             ifImfill=false;
         }
         else if(ifImopen)
         {
             open=new Opening(imageName,openDialog.getMaskSize(),openDialog.getMask());
             g.drawImage(open.getOpenImage(),sourceImage.getWidth(),0, this);
+            saveFile(open.getOpenImage());
             ifImopen=false;
         }
         else if(ifVMF)
@@ -91,6 +81,7 @@ public class Gui extends JPanel {
             vmfData=vmfDialog.getData();
             vecMed = new PrepareVectorMedian(imageName, Integer.parseInt(vmfData));
             g.drawImage(vecMed.getMedianImage(),sourceImage.getWidth(),0, this);
+            saveFile(vecMed.getMedianImage());
             ifVMF=false;
         }
 

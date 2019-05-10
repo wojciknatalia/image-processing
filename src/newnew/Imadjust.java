@@ -1,4 +1,4 @@
-package imadjust;
+package newnew;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -24,12 +24,45 @@ public class Imadjust {
         //in is contrast, out is brightness
 
         //na sztywno
-        increaseBrightness(in, o1);
+       /* increaseBrightness(in, o1);
         increaseContrast(in, i1);
         increaseBrightness(in, o2);
         increaseContrast(in, i2);
         increaseBrightness(in, o3);
-        increaseContrast(in, i3);
+        increaseContrast(in, i3);*/
+
+        int[][] imageColor = new int[in.getWidth()][in.getHeight()];
+
+        for (int i = 0; i < in.getWidth(); i++) {
+            for (int j = 0; j < in.getHeight(); j++) {
+                imageColor[i][j] = in.getRGB(i , j);
+            }
+        } //read image as array
+
+        for (int i = 0; i < in.getWidth(); i++) {
+            for (int j = 0; j < in.getHeight(); j++) {
+                if(i<i1)
+                    increaseContrast(in, 0,i1);
+                else if(i>i1 & i< i2)
+                {
+                    increaseContrast(in, i1,i2);
+                }
+                else if(i>i2 & i<i3)
+                {
+                    increaseContrast(in, i2, i3);
+                }
+                else if(i>i3)
+                    increaseContrast(in, i2, 255);
+            }
+        }
+
+       /* increaseBrightness(in, o1);
+        increaseContrast(in, 0,i1);
+        increaseBrightness(in, o2);
+        increaseContrast(in, i1,i2);
+        increaseBrightness(in, o3);
+        increaseContrast(in, i2, i3);*/
+        //increaseContrast(in, i2, 255)
     }
 
     private static void readFile(String fileName) throws IOException {
@@ -101,7 +134,7 @@ public class Imadjust {
         img.setRGB(0, 0, width, height, rgbArr, 0, width);
     }
 
-    private static void increaseContrast(BufferedImage img, int contrastMod)
+    private static void increaseContrast(BufferedImage img, int l, int rM)
     {
         int width = img.getWidth();
         int height = img.getHeight();
@@ -115,9 +148,9 @@ public class Imadjust {
             g = getG(rgbArr[i]);
             b = getB(rgbArr[i]);
 
-            rgbArr[i] = toRGB(truncate(r < 127 ? r - contrastMod : r + contrastMod, 0, 255),
-                    truncate(g < 127 ? g - contrastMod : g + contrastMod, 0, 255),
-                    truncate(b < 127 ? b - contrastMod : b + contrastMod, 0, 255));
+            rgbArr[i] = toRGB(truncate(r, l, rM),
+                    truncate(g, l, rM),
+                    truncate(b, l, rM));
         }
 
         img.setRGB(0, 0, width, height, rgbArr, 0, width);

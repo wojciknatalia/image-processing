@@ -1,68 +1,41 @@
 package imopen;
 
-import java.util.Arrays;
-
 import static java.lang.Math.*;
 
 public class LineStrel
 {
-    /** The length of the line, in pixels */
     double length;
+    double theta; //Angle
+    int[][] shifts; //Stores the shape of structuring element as an array of shifts with respect to the central pixel
 
-    /** orientation of the line, in degrees, counted CCW from horizontal. */
-    double theta;
-
-    /**
-     * Stores the shape of this structuring element as an array of shifts with
-     * respect to the central pixel.
-     * The array has N-by-2 elements, where N is the number of pixels composing the strel.
-     */
-    int[][] shifts;
-
-    /**
-     * Creates an new instance of linear structuring element. The number of
-     * pixels composing the line may differ from the specified length due to
-     * rounding effects.
-     *
-     * @param length
-     *            the (approximate) length of the structuring element.
-     * @param angleInDegrees
-     *            the angle with the horizontal of the structuring element
-     */
     public LineStrel(double length, double angleInDegrees)
     {
         this.length = length;
         this.theta = angleInDegrees;
-
         this.computeShifts();
     }
 
-    /**
-     * Computes the position of the pixels that constitutes this structuring
-     * element.
-     */
     private void computeShifts()
     {
-        // Components of direction vector
+        //Direction vector
         double thetaRads = Math.toRadians(this.theta);
         double dx = Math.cos(thetaRads);
         double dy = Math.sin(thetaRads);
 
-        // length of projected line
+        //Length of line
         double dMax = max(abs(dx), abs(dy));
         double projLength = this.length * dMax;
 
-        // half-size and size of the mask
+        //Half-size and size of the mask
         int n2 = (int) round((projLength - 1) / 2);
         int n = 2 * n2 + 1;
 
-        // allocate memory for shifts array
-        this.shifts = new int[n][2];
+        this.shifts = new int[n][2]; //allocate memory for shifts array
 
-        // compute position of line pixels
+        //compute position of line pixels
         if (abs(dx) >= abs(dy))
         {
-            // process horizontal lines
+            //process horizontal lines
             for (int i = -n2; i <= n2; i++)
             {
                 shifts[i + n2][0] = i;
@@ -71,7 +44,7 @@ public class LineStrel
         }
         else
         {
-            // process vertical lines
+            //process vertical lines
             for (int i = -n2; i <= n2; i++)
             {
                 shifts[i + n2][1] = i;
@@ -80,21 +53,6 @@ public class LineStrel
         }
     }
 
-    /**
-     * Returns the size of the structuring element, as an array of size in
-     * each direction.
-     * @return the size of the structuring element
-     */
-    public int[] getSize()
-    {
-        int n = this.shifts.length;
-        return new int[]{n, n};
-    }
-
-    /**
-     * Returns the structuring element as a mask. Each value is either 0 or 255.
-     * @return the mask of the structuring element
-     */
     public int[][] getMask()
     {
         int n = this.shifts.length;
@@ -114,29 +72,11 @@ public class LineStrel
         return mask;
     }
 
-    /**
-     * Returns the offset in the mask.
-     * @return the offset in the mask
-     */
     public int[] getOffset()
     {
         int offset = (this.shifts.length - 1) / 2;
         return new int[]{offset, offset};
     }
-
-    /**
-     * Returns the structuring element as a set of shifts.
-     * @return a set of shifts
-     */
-    public int[][] getShifts()
-    {
-        return this.shifts;
-    }
-
-    /**
-     * Returns this structuring element, as oriented line structuring elements
-     * are symmetric by definition.
-     */
 
     public int[] strelTo1D(int[][] arr){
         int[] oneDArray=new int[arr.length*arr.length];
@@ -152,12 +92,4 @@ public class LineStrel
         return (int)sqrt(maskArray.length);
     }
 
-   /* public static void main(String[] args){
-        LineStrel strel=new LineStrel(3,45);
-        int[][] mask=strel.getMask();
-        int[] mask1D=strelTo1D(mask); //convert 2D to 1D
-
-        System.out.println(Arrays.toString(mask1D));
-        System.out.println((int)sqrt(mask1D.length));
-    }*/
 }

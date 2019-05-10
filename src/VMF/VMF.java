@@ -52,7 +52,7 @@ public class VMF {
         int curr,curg,curb,r,g,b;
         double dis;
 
-        // Runs through mask
+        //Runs through mask
         for (int i=0;i<masksize*masksize;i++)
         {
             curr = (pixels[maskIndex[i]] >> 16)&0xff;
@@ -60,7 +60,7 @@ public class VMF {
             curb = (pixels[maskIndex[i]])&0xff;
             dis = 0;
 
-            // Runs through mask again
+            //Runs through mask again
             for (int j=0;j<masksize*masksize;j++)
             {
                 if (i != j)
@@ -69,7 +69,7 @@ public class VMF {
                     g = (pixels[maskIndex[j]] >> 8)&0xff;
                     b = (pixels[maskIndex[j]])&0xff;
 
-                    // Sum of distances between pixels
+                    // Sum of distances between pixels - euklides
                     dis += Math.sqrt((curr-r)*(curr-r)+(curg-g)*(curg-g)+(curb-b)*(curb-b));
                 }
             }

@@ -1,4 +1,4 @@
-package imfill;
+package newnewnor;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -7,7 +7,7 @@ public class ImageUtilities {
 
     //create Image from a file, then turns into a BufferedImage
 
-    public static final String imageName = "coins.jpg";
+    public static final String imageName = "meadow.jpg";
 
     public static BufferedImage getBufferedImage(String imageFile,
                                                  Component c) {

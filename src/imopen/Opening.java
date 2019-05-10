@@ -1,39 +1,42 @@
 package imopen;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Opening extends JFrame {
 
-    private static BufferedImage openImage; //grey image of input image
+    private static BufferedImage openImage;
     BufferedImage sourceImage = null;
-    static ImageUtilities util= new ImageUtilities();
-    public static final String imageName = util.getImageName();
+    //static ImageUtilities util= new ImageUtilities();
+    //public static final String imageName = util.getImageName();
 
-    int masksize; //TO DO: customize masksize and mask
-    int mask[];
 
     public Opening(String fileName, int mSize, int[] myMask){
 
-        sourceImage = ImageUtilities.getBufferedImage(fileName, this);//ImageUtilities.getBufferedImage(imageName, this);
-        int[][] greyScale = RGBToGrey(sourceImage);
-        int[] tab1D=convertTo1D(greyScale, sourceImage.getWidth(), sourceImage.getHeight());
+        try {
+            sourceImage = ImageIO.read(new File(fileName));
+            new BufferedImage(sourceImage.getWidth(),
+                    sourceImage.getHeight(),
+                    sourceImage.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int[][] tab2D = convertTo2D(sourceImage);
+        int[] tab1D=convertTo1D(tab2D, sourceImage.getWidth(), sourceImage.getHeight());
 
         openImage = makeNewBufferedImage1D(doOpening(tab1D,sourceImage.getWidth(),sourceImage.getHeight(), mSize, myMask), sourceImage.getWidth(), sourceImage.getHeight());
-        //below need to be checked
     }
 
 
-public int[][] RGBToGrey(BufferedImage source){
+public int[][] convertTo2D(BufferedImage source){
         int greyScale[][] = new int[source.getWidth()][source.getHeight()];
         for(int x=0; x<source.getWidth(); x++){
-        for(int y=0; y<source.getHeight(); y++){
-        int c = source.getRGB(x, y);
-        float r = (c&0x00ff0000)>>16;
-        float g = (c&0x0000ff00)>>8;
-        float b = c&0x000000ff;
-        //greyScale[x][y] = (int)(0.3*r + 0.59*g + 0.11*b);
-        greyScale[x][y] = c; }
+            for(int y=0; y<source.getHeight(); y++){
+                int c = source.getRGB(x, y);
+                greyScale[x][y] = c; }
         }
         return greyScale;
     }
@@ -51,8 +54,8 @@ public int[] convertTo1D(int[][] input, int width, int height){
         int[] pixels=new int[width*height];
         int i = 0;
         for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-        pixels[i++] = input[x][y]; }
+            for (int x = 0; x < width; x++) {
+                pixels[i++] = input[x][y]; }
         }
         return pixels;
     }

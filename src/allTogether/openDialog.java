@@ -14,7 +14,7 @@ public class openDialog {
     static int maskSize;
     static LineStrel strel;
 
-    JLabel label1=new JLabel("Masksize");
+    JLabel label1=new JLabel("Mask size");
     JLabel label2=new JLabel("Angle");
 
     static JTextField in1Field=new JTextField();
@@ -54,7 +54,7 @@ public class openDialog {
         mask=strel.strelTo1D(mask2D);
         maskSize=strel.getMaskSize(mask);
     }
-    
+
     static int getMaskSize(){
         return maskSize;
     }

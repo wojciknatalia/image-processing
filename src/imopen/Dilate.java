@@ -2,16 +2,7 @@ package imopen;
 
 public class Dilate extends MorphOperation{
 
-    /*masksize =5;
-    int mask[] =
-        {	0,0,1,0,0,
-            0,0,1,0,0,
-            1,1,1,1,1,
-            0,0,1,0,0,
-            0,0,1,0,0};
-    dilate_filt filter=new dilate_filt(masksize,mask);*/
-
-    // Create object and initialize data
+    //Create object and initialize data
     public Dilate(int[] px, int size, int[] input, int w, int h)
     {
         this.pixels=px;
@@ -21,25 +12,25 @@ public class Dilate extends MorphOperation{
         mask = input;
     }
 
-    // Runs algorithm
+    //Runs algorithm
     public int[] performEffect()
     {
         int maxr, maxg, maxb;
         super.assignData();
 
-        // Moves through the input array pixel by pixel
+        //Moves through the input array pixel by pixel
         for (int y=indent;y<height-indent;y++)
         {
             for (int x=indent;x<width-indent;x++)
             {
-                // Location of centre of mask
+                //Location of centre of mask
                 pointOffset = y*width+x;
 
                 maxr = 0;
                 maxg = 0;
                 maxb = 0;
 
-                // Finds and outputs max of RGB values covered by mask
+                //Finds and outputs max of RGB values covered by mask
                 for (int m=-indent;m<=indent;m++)
                 {
                     for (int n=-indent;n<=indent;n++)
@@ -52,7 +43,6 @@ public class Dilate extends MorphOperation{
                                 &0xff) * mask[radius+n+m*masksize]);
                     }
                 }
-
                 newPixels[pointOffset] = (255<<24) | maxr<<16 | maxg<<8 | maxb;
             }
         }
