@@ -7,12 +7,10 @@ import java.io.IOException;
 
 public class Imadjust {
 
-    private static File file;
     private static BufferedImage in;
 
     public Imadjust(String fileName, int i1, int o1, int i2, int o2, int i3, int o3){
         try {
-            //readFile(fileName);
             in = ImageIO.read(new File(fileName));
             new BufferedImage(in.getWidth(),
                     in.getHeight(),
@@ -21,20 +19,8 @@ public class Imadjust {
             e.printStackTrace();
         }
 
-        //in is contrast, out is brightness
-
-        //na sztywno
-        increaseBrightness(in, o1);
-        increaseContrast(in, i1);
-        increaseBrightness(in, o2);
-        increaseContrast(in, i2);
-        increaseBrightness(in, o3);
-        increaseContrast(in, i3);
-    }
-
-    private static void readFile(String fileName) throws IOException {
-        file = new File(fileName);
-        in = ImageIO.read(file);
+        normalize(in, i1, i2, o1, o2);
+        normalize(in, i2, i3, o2, o3);
     }
 
     private static int getR(int in) {
@@ -50,11 +36,11 @@ public class Imadjust {
         return (int)((((r << 8)|g) << 8)|b);
     }
 
-    private static int truncate(int n, int leftMargin, int rightMargin) {
-        if (n < leftMargin) {
-            n = leftMargin;
-        } else if (n > rightMargin) {
-            n = rightMargin;
+    private static int crop(int n, int left, int right) {
+        if (n < left) {
+            n = left;
+        } else if (n > right) {
+            n = right;
         }
         return n;
     }
@@ -79,7 +65,7 @@ public class Imadjust {
         img.setRGB(0, 0, width, height, rgbArr, 0, width);
     }
 
-    private static void increaseBrightness(BufferedImage img, int brigtnessMod)
+    private void normalize(BufferedImage img, int minvalin, int maxvalin, int minvalout, int maxvalout)
     {
         int width = img.getWidth();
         int height = img.getHeight();
@@ -93,33 +79,17 @@ public class Imadjust {
             g = getG(rgbArr[i]);
             b = getB(rgbArr[i]);
 
-            rgbArr[i] = toRGB(r + brigtnessMod > 255 ? 255 : r + brigtnessMod,
-                    g + brigtnessMod > 255 ? 255 : g + brigtnessMod,
-                    b + brigtnessMod > 255 ? 255 : b + brigtnessMod);
+            if(r<minvalin | r>maxvalin)
+                r= crop(r, minvalout, maxvalout);
+
+            else if(g<minvalin | g>maxvalin)
+                g= crop(g, minvalout, maxvalout);
+
+            else if(b<minvalin | b>maxvalin)
+                b= crop(b, minvalout, maxvalout);
+
+            rgbArr[i] = toRGB(r,g,b);
         }
-
-        img.setRGB(0, 0, width, height, rgbArr, 0, width);
-    }
-
-    private static void increaseContrast(BufferedImage img, int contrastMod)
-    {
-        int width = img.getWidth();
-        int height = img.getHeight();
-        int r,g,b;
-
-        int[] rgbArr = new int[width * height];
-        img.getRGB(0, 0, width, height, rgbArr, 0, width);
-
-        for (int i = 0; i < width * height; i++) {
-            r = getR(rgbArr[i]);
-            g = getG(rgbArr[i]);
-            b = getB(rgbArr[i]);
-
-            rgbArr[i] = toRGB(truncate(r < 127 ? r - contrastMod : r + contrastMod, 0, 255),
-                    truncate(g < 127 ? g - contrastMod : g + contrastMod, 0, 255),
-                    truncate(b < 127 ? b - contrastMod : b + contrastMod, 0, 255));
-        }
-
         img.setRGB(0, 0, width, height, rgbArr, 0, width);
     }
 

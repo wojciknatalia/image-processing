@@ -10,13 +10,6 @@ public class ImageFill {
     private static BufferedImage inputImage;
     private static BufferedImage imfillImage;
 
-    public int getWidth(){
-        return inputImage.getWidth();
-    }
-    public int getHeight(){
-        return inputImage.getHeight();
-    }
-
     public ImageFill(String imFill) throws IOException{
         int[][] inputImg2D ;
         try {
@@ -33,28 +26,27 @@ public class ImageFill {
                 }
             }
 
-            inputImg2D = imfillImage(15,inputImg2D);
+            inputImg2D = imfillImage(10,inputImg2D);
             for (int i = 0; i < inputImage.getWidth(); i++) {
                 for (int j = 0; j < inputImage.getHeight(); j++) {
                     imfillImage.setRGB(i, j, inputImg2D[i][j]);
                 }
             }
-
-            }
+        }
         catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    private int[][] imfillImage(int distance, int[][] imgIn) {
+    private int[][] imfillImage(int dist, int[][] imgIn) {
         int[][] newImg2D;
         newImg2D = imgIn;
         int counter;
-        for (int i = distance; i < imgIn.length - distance; i++) {
-            for (int j = distance; j < imgIn[1].length - distance; j++) {
+        for (int i = dist; i < imgIn.length - dist; i++) {
+            for (int j = dist; j < imgIn[1].length - dist; j++) {
                 counter = 0;
-                for (int k1 = 0; k1 < distance; k1++) {
+                for (int k1 = 0; k1 < dist; k1++) {
                     if (imgIn[i-k1][j] > 0xffaa0000)
                     {
                         counter++;
@@ -62,14 +54,14 @@ public class ImageFill {
                     }
                 }
 
-                for (int k1 = 0; k1 < distance; k1++) {
+                for (int k1 = 0; k1 < dist; k1++) {
                     if (imgIn[i][j-k1] > 0xffaa0000)
                     {
                         counter++;
                         break;
                     }
                 }
-                for (int k1 = 0; k1 < distance; k1++) {
+                for (int k1 = 0; k1 < dist; k1++) {
                     if (imgIn[i+k1][j] > 0xffaa0000)
                     {
                         counter++;
@@ -77,7 +69,7 @@ public class ImageFill {
                     }
                 }
 
-                for (int k1 = 0; k1 < distance; k1++) {
+                for (int k1 = 0; k1 < dist; k1++) {
                     if (imgIn[i][j+k1] > 0xffaa0000)
                     {
                         counter++;
