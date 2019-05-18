@@ -26,7 +26,7 @@ public class ImageFill {
                 }
             }
 
-            inputImg2D = imfillImage(10,inputImg2D);
+            inputImg2D = imfillImage(15,inputImg2D);
             for (int i = 0; i < inputImage.getWidth(); i++) {
                 for (int j = 0; j < inputImage.getHeight(); j++) {
                     imfillImage.setRGB(i, j, inputImg2D[i][j]);
@@ -46,31 +46,31 @@ public class ImageFill {
         for (int i = dist; i < imgIn.length - dist; i++) {
             for (int j = dist; j < imgIn[1].length - dist; j++) {
                 counter = 0;
-                for (int k1 = 0; k1 < dist; k1++) {
-                    if (imgIn[i-k1][j] > 0xffaa0000)
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i-k][j] > 0xffaa0000)
                     {
                         counter++;
                         break;
                     }
                 }
 
-                for (int k1 = 0; k1 < dist; k1++) {
-                    if (imgIn[i][j-k1] > 0xffaa0000)
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i][j-k] > 0xffaa0000)
                     {
                         counter++;
                         break;
                     }
                 }
-                for (int k1 = 0; k1 < dist; k1++) {
-                    if (imgIn[i+k1][j] > 0xffaa0000)
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i+k][j] > 0xffaa0000)
                     {
                         counter++;
                         break;
                     }
                 }
 
-                for (int k1 = 0; k1 < dist; k1++) {
-                    if (imgIn[i][j+k1] > 0xffaa0000)
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i][j+k] > 0xffaa0000)
                     {
                         counter++;
                         break;

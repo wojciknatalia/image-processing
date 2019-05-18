@@ -45,51 +45,45 @@ public class Imadjust {
         return n;
     }
 
-    private static void grayscale(BufferedImage img) {
-        int width = img.getWidth();
-        int height = img.getHeight();
-        int r,g,b;
-
-        int[] rgbArr = new int[width * height];
-        img.getRGB(0, 0, width, height, rgbArr, 0, width);
-
-        for (int i = 0; i < width * height; i++) {
-            r = getR(rgbArr[i]);
-            g = getG(rgbArr[i]);
-            b = getB(rgbArr[i]);
-
-            int val = (int)(0.21 * r) + (int)(0.72 * g) + (int)(0.07 * b);
-            rgbArr[i] = toRGB(val, val, val);
-        }
-
-        img.setRGB(0, 0, width, height, rgbArr, 0, width);
-    }
-
     private void normalize(BufferedImage img, int minvalin, int maxvalin, int minvalout, int maxvalout)
     {
         int width = img.getWidth();
         int height = img.getHeight();
         int r,g,b;
+        boolean flag=false;
 
         int[] rgbArr = new int[width * height];
         img.getRGB(0, 0, width, height, rgbArr, 0, width);
+        int pixel, red, green, blue;
 
         for (int i = 0; i < width * height; i++) {
             r = getR(rgbArr[i]);
             g = getG(rgbArr[i]);
             b = getB(rgbArr[i]);
 
-            if(r<minvalin | r>maxvalin)
-                r= crop(r, minvalout, maxvalout);
+            if(r==g & g==b) //monochrome
+            {
+                flag=true;
+            }
+            if (r < minvalin | r > maxvalin)
+                r = crop(r, minvalout, maxvalout);
 
-            else if(g<minvalin | g>maxvalin)
-                g= crop(g, minvalout, maxvalout);
+            else if (g < minvalin | g > maxvalin)
+                g = crop(g, minvalout, maxvalout);
 
-            else if(b<minvalin | b>maxvalin)
-                b= crop(b, minvalout, maxvalout);
+            else if (b < minvalin | b > maxvalin)
+                b = crop(b, minvalout, maxvalout);
 
-            rgbArr[i] = toRGB(r,g,b);
+            if(flag){
+                int val = (int)(0.21 * r) + (int)(0.72 * g) + (int)(0.07 * b);
+                rgbArr[i] = toRGB(val, val, val);
+                flag=false;
+            }
+            else
+                rgbArr[i] = toRGB(r, g, b);
+
         }
+
         img.setRGB(0, 0, width, height, rgbArr, 0, width);
     }
 
