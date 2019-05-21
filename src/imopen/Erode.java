@@ -2,7 +2,6 @@ package imopen;
 
 public class Erode extends MorphOperation {
 
-    //Create object and initialize data
     public Erode(int[] px, int size, int[] input, int w, int h)
     {
         this.pixels=px;
@@ -12,25 +11,25 @@ public class Erode extends MorphOperation {
         mask = input;
     }
 
-    //Runs algorithm
+    //run transformation
     public int[] performEffect()
     {
         int minr, minb, ming;
         super.assignData();
 
-        //Moves through the input array pixel by pixel
+        //move through input array pixel by pixel
         for (int y=indent;y<height-indent;y++)
         {
             for (int x=indent;x<width-indent;x++)
             {
-                // Location of centre of mask
+                //calculate centre of mask
                 pointOffset = y*width+x;
 
                 minr = 255;
                 ming = 255;
                 minb = 255;
 
-                // Finds and outputs min of RGB values covered by mask
+                //find min of RGB values covered by mask
                 for (int m=-indent;m<=indent;m++)
                 {
                     for (int n=-indent;n<=indent;n++)
@@ -48,7 +47,7 @@ public class Erode extends MorphOperation {
                     }
                 }
 
-                newPixels[pointOffset] = (255<<24) | minr<<16 | ming<<8 | minb;
+                newPixels[pointOffset] = (255<<24) | minr<<16 | ming<<8 | minb; //calculate pixel value
             }
         }
 

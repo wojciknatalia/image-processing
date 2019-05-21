@@ -8,10 +8,10 @@ import java.io.IOException;
 
 public class PrepareVectorMedian extends JFrame{
 
-    private static BufferedImage medianImage; //grey image of input image
+    private static BufferedImage medianImage;
     BufferedImage sourceImage = null;
 
-    public PrepareVectorMedian(String fileName, int maskSize) //throws Exception
+    public PrepareVectorMedian(String fileName, int maskSize)
     {
         try {
             sourceImage = ImageIO.read(new File(fileName));

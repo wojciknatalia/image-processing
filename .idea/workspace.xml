@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c2f03397-a9d5-4a46-aea8-073491fdd992" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/image-processing/imadjust/Imadjust.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/imadjust/Imadjust.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/image-processing/imfill/ImageFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/imfill/ImageFill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processedImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/processedImage.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VMF/VMF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VMF/VMF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/allTogether/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/allTogether/Gui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imadjust/Imadjust.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imadjust/Imadjust.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/imfill/ImageFill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imfill/ImageFill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imopen/Dilate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imopen/Dilate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imopen/Erode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imopen/Erode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imopen/LineStrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imopen/LineStrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/imopen/Opening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/imopen/Opening.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imopen/Erode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="325">
+              <caret line="49" column="103" selection-start-line="49" selection-start-column="103" selection-end-line="49" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -44,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imopen/LineStrel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1035">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="1360">
+              <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -60,10 +64,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/allTogether/vmfDialog.java">
+        <entry file="file://$PROJECT_DIR$/src/allTogether/WindowApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state relative-caret-position="393">
+              <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,13 +75,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imadjust/Imadjust.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="89" column="35" lean-forward="true" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+            <state relative-caret-position="1020">
+              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2505#2506#0" expanded="true" />
                 <element signature="e#2530#2531#0" expanded="true" />
               </folding>
             </state>
@@ -87,10 +92,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imfill/ImageFill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+            <state relative-caret-position="289">
+              <caret line="74" column="68" selection-start-line="74" selection-start-column="68" selection-end-line="74" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3557#3558#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,32 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imopen/Dilate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/allTogether/Gui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/allTogether/ImageUtilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -132,11 +114,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/imopen/Opening.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="70">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-440">
+              <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/VMF/VMF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -193,21 +196,21 @@
         <option value="$PROJECT_DIR$/src/newnew/Gui.java" />
         <option value="$PROJECT_DIR$/src/newnew/Imadjust.java" />
         <option value="$PROJECT_DIR$/src/allTogether/normalizationDialog.java" />
-        <option value="$PROJECT_DIR$/src/imopen/Dilate.java" />
-        <option value="$PROJECT_DIR$/src/imopen/Erode.java" />
-        <option value="$PROJECT_DIR$/src/imopen/LineStrel.java" />
-        <option value="$PROJECT_DIR$/src/VMF/VMF.java" />
-        <option value="$PROJECT_DIR$/src/imopen/Opening.java" />
-        <option value="$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java" />
         <option value="$PROJECT_DIR$/src/allTogether/WindowApp.java" />
         <option value="$PROJECT_DIR$/src/allTogether/ImageUtilities.java" />
-        <option value="$PROJECT_DIR$/src/allTogether/Gui.java" />
         <option value="$PROJECT_DIR$/src/newnorm/ImageUtilities.java" />
         <option value="$PROJECT_DIR$/src/newnewnor/Gui.java" />
         <option value="$PROJECT_DIR$/src/newnorm/Gui.java" />
         <option value="$PROJECT_DIR$/src/newnorm/Imadjust.java" />
         <option value="$PROJECT_DIR$/src/imfill/ImageFill.java" />
+        <option value="$PROJECT_DIR$/src/allTogether/Gui.java" />
         <option value="$PROJECT_DIR$/src/imadjust/Imadjust.java" />
+        <option value="$PROJECT_DIR$/src/imopen/Dilate.java" />
+        <option value="$PROJECT_DIR$/src/imopen/Erode.java" />
+        <option value="$PROJECT_DIR$/src/imopen/LineStrel.java" />
+        <option value="$PROJECT_DIR$/src/imopen/Opening.java" />
+        <option value="$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java" />
+        <option value="$PROJECT_DIR$/src/VMF/VMF.java" />
       </list>
     </option>
   </component>
@@ -229,8 +232,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,8 +285,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558189866230" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558433644383" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cannon-shooter/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -359,11 +362,13 @@
       <workItem from="1557766086083" duration="4907000" />
       <workItem from="1557814458529" duration="279000" />
       <workItem from="1558172314992" duration="6791000" />
+      <workItem from="1558367950143" duration="179000" />
+      <workItem from="1558430538324" duration="3094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133422000" />
+    <option name="totallyTimeSpent" value="136695000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,7 +382,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11825193" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12082262" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -386,7 +391,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993573" weight="0.17765814" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49871466" weight="0.17765814" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -395,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32974428" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.17765814" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5012854" side_tool="true" weight="0.17765814" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32839838" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -456,9 +461,7 @@
     <entry file="file://$PROJECT_DIR$/src/imfill/imfll.java" />
     <entry file="file://$PROJECT_DIR$/src/imadjust/VMF.java" />
     <entry file="file://$PROJECT_DIR$/src/imadjust/PrepareVectorMedian.java" />
-    <entry file="file://$PROJECT_DIR$/meadow.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/meadow.jpg" />
     <entry file="file://$PROJECT_DIR$/src/imadjustworkd/Main.java" />
     <entry file="file://$PROJECT_DIR$/performEffect.jpg" />
     <entry file="file://$PROJECT_DIR$/src/allTogether.java" />
@@ -471,10 +474,41 @@
     <entry file="file://$PROJECT_DIR$/src/newnewnor/ImageUtilities.java" />
     <entry file="file://$PROJECT_DIR$/src/newnew/Gui.java" />
     <entry file="file://$PROJECT_DIR$/src/newnew/ImageUtilities.java" />
+    <entry file="file://$PROJECT_DIR$/src/imadjust/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/imopen/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/VMF/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/VMF/ImageUtilities.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnewnor/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnew/Imadjust.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnorm/ImageUtilities.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnewnor/ImageFill.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnorm/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/src/newnorm/Imadjust.java" />
+    <entry file="file://$PROJECT_DIR$/src/allTogether/Gui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/allTogether/ImageUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/allTogether/normalizationDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="-644">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -493,21 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/imadjust/Gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/imopen/Gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/VMF/Gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/VMF/ImageUtilities.java" />
-    <entry file="file://$PROJECT_DIR$/src/VMF/VMF.java">
+    <entry file="file://$PROJECT_DIR$/src/allTogether/vmfDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        <state relative-caret-position="291">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -516,7 +539,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/allTogether/WindowApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
+        <state relative-caret-position="393">
           <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -524,70 +547,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/newnewnor/Gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/newnew/Imadjust.java" />
-    <entry file="file://$PROJECT_DIR$/src/newnorm/ImageUtilities.java" />
-    <entry file="file://$PROJECT_DIR$/src/newnewnor/ImageFill.java" />
-    <entry file="file://$PROJECT_DIR$/src/newnorm/Gui.java" />
-    <entry file="file://$PROJECT_DIR$/src/newnorm/Imadjust.java" />
-    <entry file="file://$PROJECT_DIR$/src/allTogether/vmfDialog.java">
+    <entry file="file://$PROJECT_DIR$/src/imadjust/Imadjust.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        <state relative-caret-position="1020">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/allTogether/Gui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/allTogether/ImageUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2505#2506#0" expanded="true" />
+            <element signature="e#2530#2531#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/imfill/ImageFill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+        <state relative-caret-position="289">
+          <caret line="74" column="68" selection-start-line="74" selection-start-column="68" selection-end-line="74" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3557#3558#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/imopen/Dilate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/imopen/Erode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/imopen/LineStrel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1035">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="1360">
+          <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -600,22 +586,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/imopen/Opening.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="70">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/imadjust/Imadjust.java">
+    <entry file="file://$PROJECT_DIR$/src/imopen/Dilate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="89" column="35" lean-forward="true" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+        <state relative-caret-position="119">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/imopen/Erode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="49" column="103" selection-start-line="49" selection-start-column="103" selection-end-line="49" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VMF/PrepareVectorMedian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-440">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VMF/VMF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
         </state>
       </provider>
     </entry>

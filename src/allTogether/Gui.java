@@ -44,7 +44,7 @@ public class Gui extends JPanel {
         sHeight = Integer.toString(sourceImage.getHeight());
     }
 
-    void saveFile(BufferedImage img){
+    void saveFile(BufferedImage img){ //writes img to file
         savedFile = new File("processedImage.jpg");
         try {
             ImageIO.write(img, "jpeg", savedFile);
@@ -54,7 +54,7 @@ public class Gui extends JPanel {
 
     public void paint(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(sourceImage, 0, 0, this);  // original image
+        g.drawImage(sourceImage, 0, 0, this);  //original image
         if(ifImadjust)
         {
             imadjustData=normalizationDialog.getData();

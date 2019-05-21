@@ -23,10 +23,11 @@ public class VMF {
         int counter;
         int newPixels[]=new int[width*height];
 
+        //move through input array pixel by pixel
         for(int y=indent; y<height-indent; y++){
             for(int x=indent; x<width-indent; x++){
                 int pointOffset=y*width+x; //centre of mask
-                counter=0; //index for mask
+                counter=0; //index for maskIndex
                 outloop:
                 for(int i=-indent;i<=indent;i++){
                     for(int j=-indent;j<=indent;j++){
@@ -52,7 +53,7 @@ public class VMF {
         int curr,curg,curb,r,g,b;
         double dis;
 
-        //Runs through mask
+        //run through mask and get values
         for (int i=0;i<masksize*masksize;i++)
         {
             curr = (pixels[maskIndex[i]] >> 16)&0xff;
@@ -60,7 +61,7 @@ public class VMF {
             curb = (pixels[maskIndex[i]])&0xff;
             dis = 0;
 
-            //Runs through mask again
+            //run through mask again and compare current pixel to others
             for (int j=0;j<masksize*masksize;j++)
             {
                 if (i != j)
@@ -69,7 +70,7 @@ public class VMF {
                     g = (pixels[maskIndex[j]] >> 8)&0xff;
                     b = (pixels[maskIndex[j]])&0xff;
 
-                    // Sum of distances between pixels - euklides
+                    //sum of distance between pixels
                     dis += Math.sqrt((curr-r)*(curr-r)+(curg-g)*(curg-g)+(curb-b)*(curb-b));
                 }
             }

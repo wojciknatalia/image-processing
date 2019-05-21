@@ -5,8 +5,8 @@ import static java.lang.Math.*;
 public class LineStrel
 {
     double length;
-    double theta; //Angle
-    int[][] shifts; //Stores the shape of structuring element as an array of shifts with respect to the central pixel
+    double theta; //angle
+    int[][] shifts; //store shape of SE as array of shifts with respect to central pixel
 
     public LineStrel(double length, double angleInDegrees)
     {
@@ -17,16 +17,16 @@ public class LineStrel
 
     private void computeShifts()
     {
-        //Direction vector
+        //direction vector
         double thetaRads = Math.toRadians(this.theta);
         double dx = Math.cos(thetaRads);
         double dy = Math.sin(thetaRads);
 
-        //Length of line
+        //line length
         double dMax = max(abs(dx), abs(dy));
         double projLength = this.length * dMax;
 
-        //Half-size and size of the mask
+        //half mask size and size of the mask
         int n2 = (int) round((projLength - 1) / 2);
         int n = 2 * n2 + 1;
 
@@ -58,12 +58,12 @@ public class LineStrel
         int n = this.shifts.length;
         int[][] mask = new int[n][n];
 
-        // precompute offsets
+        //calculate offsets
         int[] offsets = this.getOffset();
         int ox = offsets[0];
         int oy = offsets[1];
 
-        // fill up the mask
+        //fill mask
         for (int i = 0; i < n; i++)
         {
             mask[this.shifts[i][1] + oy][this.shifts[i][0] + ox] = 1;
@@ -78,6 +78,7 @@ public class LineStrel
         return new int[]{offset, offset};
     }
 
+    //convert to 1D array
     public int[] strelTo1D(int[][] arr){
         int[] oneDArray=new int[arr.length*arr.length];
         for(int i=0; i<arr.length; i++){

@@ -36,7 +36,7 @@ public class Imadjust {
         return (int)((((r << 8)|g) << 8)|b);
     }
 
-    private static int crop(int n, int left, int right) {
+    private static int crop(int n, int left, int right) { //comapare current, min and max val
         if (n < left) {
             n = left;
         } else if (n > right) {
@@ -54,18 +54,17 @@ public class Imadjust {
 
         int[] rgbArr = new int[width * height];
         img.getRGB(0, 0, width, height, rgbArr, 0, width);
-        int pixel, red, green, blue;
 
         for (int i = 0; i < width * height; i++) {
             r = getR(rgbArr[i]);
             g = getG(rgbArr[i]);
             b = getB(rgbArr[i]);
 
-            if(r==g & g==b) //monochrome
+            if(r==g & g==b) //if monochrome
             {
                 flag=true;
             }
-            if (r < minvalin | r > maxvalin)
+            if (r < minvalin | r > maxvalin) //compare values in the range (in1,in2)/(in2,in3)
                 r = crop(r, minvalout, maxvalout);
 
             else if (g < minvalin | g > maxvalin)
@@ -75,7 +74,7 @@ public class Imadjust {
                 b = crop(b, minvalout, maxvalout);
 
             if(flag){
-                int val = (int)(0.21 * r) + (int)(0.72 * g) + (int)(0.07 * b);
+                int val = (int)(0.21 * r) + (int)(0.72 * g) + (int)(0.07 * b); //apply greyScale
                 rgbArr[i] = toRGB(val, val, val);
                 flag=false;
             }

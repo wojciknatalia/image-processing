@@ -10,9 +10,6 @@ public class Opening extends JFrame {
 
     private static BufferedImage openImage;
     BufferedImage sourceImage = null;
-    //static ImageUtilities util= new ImageUtilities();
-    //public static final String imageName = util.getImageName();
-
 
     public Opening(String fileName, int mSize, int[] myMask){
 

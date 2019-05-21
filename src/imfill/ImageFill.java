@@ -46,37 +46,59 @@ public class ImageFill {
         for (int i = dist; i < imgIn.length - dist; i++) {
             for (int j = dist; j < imgIn[1].length - dist; j++) {
                 counter = 0;
-                for (int k = 0; k < dist; k++) {
-                    if (imgIn[i-k][j] > 0xffaa0000)
-                    {
-                        counter++;
-                        break;
-                    }
-                }
-
-                for (int k = 0; k < dist; k++) {
-                    if (imgIn[i][j-k] > 0xffaa0000)
+                for (int k = 0; k < dist; k++) { //pixel sides
+                    if (imgIn[i-k][j] > 0xff808080)
                     {
                         counter++;
                         break;
                     }
                 }
                 for (int k = 0; k < dist; k++) {
-                    if (imgIn[i+k][j] > 0xffaa0000)
-                    {
+                    if (imgIn[i][j-k] > 0xff808080) {
                         counter++;
                         break;
                     }
                 }
-
                 for (int k = 0; k < dist; k++) {
-                    if (imgIn[i][j+k] > 0xffaa0000)
+                    if (imgIn[i+k][j] > 0xff808080)
                     {
                         counter++;
                         break;
                     }
                 }
-                if (counter == 4)  newImg2D[i][j] = 0xffffffff;
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i][j + k] > 0xff808080) {
+                        counter++;
+                        break;
+                    }
+                } //end of pixel sides
+                for (int k = 0; k < dist; k++) { //pixel vertex area
+                    if (imgIn[i-k][j-k] > 0xff808080)
+                    {
+                        counter++;
+                        break;
+                    }
+                }
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i+k][j+k] > 0xff808080)
+                    {
+                        counter++;
+                        break;
+                    }
+                }
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i - k][j + k] > 0xff808080) {
+                        counter++;
+                        break;
+                    }
+                }
+                for (int k = 0; k < dist; k++) {
+                    if (imgIn[i + k][j - k] > 0xff808080) {
+                        counter++;
+                        break;
+                    }
+                }
+                if (counter == 8)  newImg2D[i][j] = 0xffffffff;
             }
         }
         return newImg2D;
